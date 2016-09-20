@@ -46,12 +46,6 @@ var HWDL = function(mem) {
   
   this.storeMem = function() {
     
-    if(true) {
-      
-    }
-    
-    var memFile = new File("memory.txt");
-    
   }
   
 }
