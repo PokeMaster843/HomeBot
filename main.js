@@ -5,7 +5,11 @@ var canvas = document.getElementById("mainCanvas");
 var ctx = canvas.getContext("2d");
 
 var update = setInterval(function() {
-  ctx.drawImage(files.elements[0], 0, 0);
+  
+  if(files != null) {
+    ctx.drawImage(files.elements[0], 0, 0);
+  }
+  
 }, 1000/60);
 
 //hdwl.compare(files.elements);
