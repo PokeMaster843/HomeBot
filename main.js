@@ -1,8 +1,25 @@
 var mem = "";
 var hdwl = new HDWL(mem);
-var files = document.getElementById("fileForm");
 
-var update = setInterval(function() {
+function getImage(event) {
+  
+  var files = event.target.files;
+  var reader = new FileReader();
+  
+  reader.onload = function(e) {
+    
+    var img = document.createElement("img");
+    
+    img.src = e.target.result;
+    document.appendChild(img);
+    
+  }
+  
+  reader.readAsDataURL(files[0]);
+  
+}
+
+/*var update = setInterval(function() {
   
   if(files != null) {
     
@@ -11,4 +28,4 @@ var update = setInterval(function() {
     
   }
   
-}, 1000 / 60);
+}, 1000 / 60);*/
