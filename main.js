@@ -11,7 +11,7 @@ function getImage(event) {
     var img = document.createElement("img");
     
     img.src = e.target.result;
-    document.appendChild(img);
+    document.getElementById("body").appendChild(img);
     
   }
   
