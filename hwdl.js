@@ -36,6 +36,12 @@ var HWDL = function(mem) {
     
     for(var i = 0; i < objList.length; i++) {
       
+      if(objList.length == 1) {
+        
+        canvas.drawImage(objList[i], 0, 0);
+        
+      }
+      
       for(var n = 0; n < objList.length; n++) {
         
         if(n == i) {
@@ -54,7 +60,7 @@ var HWDL = function(mem) {
           canvas.drawImage(obj0, 0, 0);
           canvas.drawImage(obj1, obj0.width, 0);
           
-          var obj0Data = canvas.getImageData(0, 0, obj0.width, obj0.height);
+          /*var obj0Data = canvas.getImageData(0, 0, obj0.width, obj0.height);
           var obj1Data = canvas.getImageData(obj0.width, 0, obj0.width + obj1.width, obj1.height);
           
           this.contrastImg(obj0Data, 30);
@@ -64,7 +70,7 @@ var HWDL = function(mem) {
           canvas.putImageData(obj1Data, obj0.width, 0, obj0.width + obj1.width, obj1.height);
           
           canvas.drawImage(obj0, 0, 0);
-          canvas.drawImage(obj1, obj0.width, 0);
+          canvas.drawImage(obj1, obj0.width, 0);*/
           
         }
         
