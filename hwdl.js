@@ -38,7 +38,7 @@ var HWDL = function(mem) {
       
       if(objList.length == 1) {
         
-        canvas.drawImage(objList[i], 0, 0);
+        ctx.drawImage(objList[0], 0, 0);
         
       }
       
@@ -57,8 +57,8 @@ var HWDL = function(mem) {
           canvas.width = obj0.width + obj1.width;
           canvas.height = (obj0.height > obj1.height) ? obj0.height : obj1.height;
           
-          canvas.drawImage(obj0, 0, 0);
-          canvas.drawImage(obj1, obj0.width, 0);
+          ctx.drawImage(obj0, 0, 0);
+          ctx.drawImage(obj1, obj0.width, 0);
           
           /*var obj0Data = canvas.getImageData(0, 0, obj0.width, obj0.height);
           var obj1Data = canvas.getImageData(obj0.width, 0, obj0.width + obj1.width, obj1.height);
@@ -66,11 +66,11 @@ var HWDL = function(mem) {
           this.contrastImg(obj0Data, 30);
           this.contrastImg(obj1Data, 30);
           
-          canvas.putImageData(obj0Data, 0, 0, obj0.width, obj0.height);
-          canvas.putImageData(obj1Data, obj0.width, 0, obj0.width + obj1.width, obj1.height);
+          ctx.putImageData(obj0Data, 0, 0, obj0.width, obj0.height);
+          ctx.putImageData(obj1Data, obj0.width, 0, obj0.width + obj1.width, obj1.height);
           
-          canvas.drawImage(obj0, 0, 0);
-          canvas.drawImage(obj1, obj0.width, 0);*/
+          ctx.drawImage(obj0, 0, 0);
+          ctx.drawImage(obj1, obj0.width, 0);*/
           
         }
         
