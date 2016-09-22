@@ -4,6 +4,8 @@ var files = document.getElementById("fileForm");
 var canvas = document.getElementById("mainCanvas");
 var ctx = canvas.getContext("2d");
 
-ctx.drawImage(files[0], 0, 0);
+var update = setInterval(function() {
+  ctx.drawImage(files.elements[0], 0, 0);
+}, 1000/60);
 
 //hdwl.compare(files.elements);
