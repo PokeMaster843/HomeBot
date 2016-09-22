@@ -9,8 +9,8 @@ var HWDL = function(mem) {
     
   };
   
-  this.getLastPair = function() {
-    return pairs[pairs.length - 1];
+  this.getPair = function(pair) {
+    return pairs[pair];
   };
   
   this.contrastImg = function(imgData, contrast) {
@@ -32,6 +32,8 @@ var HWDL = function(mem) {
   
   this.compare = function(objList) {
     
+    pairs.length = 0;
+    
     for(var i = 0; i < objList.length; i++) {
       
       for(var n = 0; n < objList.length; n++) {
@@ -42,9 +44,9 @@ var HWDL = function(mem) {
         
         else {
           
-          pairs.length = 0;
-          pairs[0] = obj0;
-          pairs[1] = obj1;
+          var obj0 = objList[i], obj1 = objList[n];
+          
+          pairs[n + (i * objList.length)] = [obj0, obj1];
           
           canvas.width = obj0.width + obj1.width;
           canvas.height = (obj0.height > obj1.height) ? obj0.height : obj1.height;
@@ -76,12 +78,12 @@ var HWDL = function(mem) {
     
   };
   
-  this.confirm = function(lvl) {
-    lvl1.push([this.getLastPair(), lvl]);
+  this.confirm = function(pair, lvl) {
+    lvl1.push([this.getPair(pair), lvl]);
   };
   
-  this.nomatch = function() {
-    nomatch.push(this.getLastPair());
+  this.nomatch = function(pair) {
+    nomatch.push(this.getPair(pair));
   };
   
   this.storeMem = function() {
