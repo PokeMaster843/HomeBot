@@ -15,7 +15,9 @@ function getImage(event) {
     
   }
   
-  reader.readAsDataURL(files[0]);
+  for(var i = 0; i < files.length; i++) {
+    reader.readAsDataURL(files[i]);
+  }
   
 }
 
