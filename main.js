@@ -1,11 +1,5 @@
 var mem = "";
 var hdwl = new HDWL(mem);
-var files;
+var files = document.getElementById("fileForm");
 
-function handleFileSelect(event) {
-  
-  files = event.target.files;
-  
-}
-
-hdwl.compare(files);
+hdwl.compare(files.elements);
