@@ -3,7 +3,7 @@ var hdwl = new HDWL(mem);
 
 function getImage(event) {
   
-  var files = event.target.files;
+  var imgs = event.target.files;
   var reader = new FileReader();
   
   reader.onload = function(e) {
@@ -15,8 +15,9 @@ function getImage(event) {
     
   }
   
-  for(var i = 0; i < files.length; i++) {
-    reader.readAsDataURL(files[i]);
+  for(var i = 0; i < imgs.length; i++) {
+    reader.readAsDataURL(imgs[i]);
+    document.getElementById("mainCanvas").getContext("2d").drawImage(imgs[i], 0, 0);
   }
   
 }
