@@ -3,14 +3,14 @@ var HWDL = function(mem) {
   var canvas = document.getElementById("mainCanvas");
   var ctx = canvas.getContext("2d");
   var lvl1 = [], lvl2 = [], lvl3 = [], nomatch = [];
-  var lastPair = [];
+  var pairs = [];
   
   this.read = function(xStart, yStart, xEnd, yEnd) {
     
   };
   
   this.getLastPair = function() {
-    return lastPair;
+    return pairs[pairs.length - 1];
   };
   
   this.contrastImg = function(imgData, contrast) {
@@ -30,29 +30,45 @@ var HWDL = function(mem) {
     
   };
   
-  this.compare = function(obj0, obj1) {
+  this.compare = function(objList) {
     
-    lastPair.length = 0;
-    lastPair[0] = obj0;
-    lastPair[1] = obj1;
-    
-    canvas.width = obj0.width + obj1.width;
-    canvas.height = (obj0.height > obj1.height) ? obj0.height : obj1.height;
-    
-    canvas.drawImage(obj0, 0, 0);
-    canvas.drawImage(obj1, obj0.width, 0);
-    
-    var obj0Data = canvas.getImageData(0, 0, obj0.width, obj0.height);
-    var obj1Data = canvas.getImageData(obj0.width, 0, obj0.width + obj1.width, obj1.height);
-    
-    this.contrastImg(obj0Data, 30);
-    this.contrastImg(obj1Data, 30);
-    
-    canvas.putImageData(obj0Data, 0, 0, obj0.width, obj0.height);
-    canvas.putImageData(obj1Data, obj0.width, 0, obj0.width + obj1.width, obj1.height);
-    
-    canvas.drawImage(obj0, 0, 0);
-    canvas.drawImage(obj1, obj0.width, 0);
+    for(var i = 0; i < objList.length; i++) {
+      
+      for(var n = 0; n < objList.length; n++) {
+        
+        if(n == i) {
+          
+        }
+        
+        else {
+          
+          pairs.length = 0;
+          pairs[0] = obj0;
+          pairs[1] = obj1;
+          
+          canvas.width = obj0.width + obj1.width;
+          canvas.height = (obj0.height > obj1.height) ? obj0.height : obj1.height;
+          
+          canvas.drawImage(obj0, 0, 0);
+          canvas.drawImage(obj1, obj0.width, 0);
+          
+          var obj0Data = canvas.getImageData(0, 0, obj0.width, obj0.height);
+          var obj1Data = canvas.getImageData(obj0.width, 0, obj0.width + obj1.width, obj1.height);
+          
+          this.contrastImg(obj0Data, 30);
+          this.contrastImg(obj1Data, 30);
+          
+          canvas.putImageData(obj0Data, 0, 0, obj0.width, obj0.height);
+          canvas.putImageData(obj1Data, obj0.width, 0, obj0.width + obj1.width, obj1.height);
+          
+          canvas.drawImage(obj0, 0, 0);
+          canvas.drawImage(obj1, obj0.width, 0);
+          
+        }
+        
+      }
+      
+    }
     
   };
   
