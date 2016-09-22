@@ -60,7 +60,7 @@ var HWDL = function(mem) {
           ctx.drawImage(obj0, 0, 0);
           ctx.drawImage(obj1, obj0.width, 0);
           
-          var obj0Data = canvas.getImageData(0, 0, obj0.width, obj0.height);
+          /*var obj0Data = canvas.getImageData(0, 0, obj0.width, obj0.height);
           var obj1Data = canvas.getImageData(obj0.width, 0, obj0.width + obj1.width, obj1.height);
           
           this.contrastImg(obj0Data, 30);
@@ -70,7 +70,7 @@ var HWDL = function(mem) {
           ctx.putImageData(obj1Data, obj0.width, 0, obj0.width + obj1.width, obj1.height);
           
           ctx.drawImage(obj0, 0, 0);
-          ctx.drawImage(obj1, obj0.width, 0);
+          ctx.drawImage(obj1, obj0.width, 0);*/
           
         }
         
