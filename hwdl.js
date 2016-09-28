@@ -99,7 +99,7 @@ var HWDL = function(mem) {
 };
 
 var mem = "";
-//var hdwl = new HDWL(mem);
+var hdwl = new HDWL(mem);
 var c = document.getElementById("mainCanvas");
 var cx = c.getContext("2d");
 var img0Loaded = false, img1Loaded = false;
