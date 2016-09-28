@@ -103,7 +103,7 @@ var hdwl = new HDWL(mem);
 
 var img = document.createElement("img");
 img.src = "img0.png";
-document.getElementById("body").appendChild(img);
+document.getElementById("mainCanvas").getContext("2d").drawImage(img, 0, 0);
 
 /*var update = setInterval(function() {
   
