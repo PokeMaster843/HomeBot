@@ -1,4 +1,4 @@
-/*var HWDL = function(mem) {
+var HWDL = function(mem) {
   
   var canvas = document.getElementById("mainCanvas");
   var ctx = canvas.getContext("2d");
@@ -96,25 +96,29 @@
     
   };
   
-};*/
+};
 
 var mem = "";
 //var hdwl = new HDWL(mem);
 var c = document.getElementById("mainCanvas");
 var cx = c.getContext("2d");
-var img = document.createElement("img");
-img.onload = function() {
-  cx.drawImage(img, 0, 0);
+var img0Loaded = false, img1Loaded = false;
+var img0 = document.createElement("img"), img1 = document.createElement("img");
+img0.onload = function() {
+  img0Loaded = true;
 }
-img.src = "img0.png";
+img1.onLoad = function() {
+  img1Loaded = true;
+}
+img0.src = "img0.png";
+img1.src = "img1.png";
+
+if(img0Loaded == true && img1Loaded == true) {
+  
+  hwdl.compare([img0, img1]);
+  
+}
 
 /*var update = setInterval(function() {
-  
-  if(files != null) {
-    
-    //hdwl.compare(files.elements);
-    document.getElementById("mainCanvas").getContext("2d").drawImage(files.elements[0], 0, 0);
-    
-  }
   
 }, 1000 / 60);*/
