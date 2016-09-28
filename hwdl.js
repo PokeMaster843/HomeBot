@@ -1,4 +1,4 @@
-var HWDL = function(mem) {
+/*var HWDL = function(mem) {
   
   var canvas = document.getElementById("mainCanvas");
   var ctx = canvas.getContext("2d");
@@ -60,7 +60,7 @@ var HWDL = function(mem) {
           ctx.drawImage(obj0, 0, 0);
           ctx.drawImage(obj1, obj0.width, 0);
           
-          /*var obj0Data = canvas.getImageData(0, 0, obj0.width, obj0.height);
+          var obj0Data = canvas.getImageData(0, 0, obj0.width, obj0.height);
           var obj1Data = canvas.getImageData(obj0.width, 0, obj0.width + obj1.width, obj1.height);
           
           this.contrastImg(obj0Data, 30);
@@ -70,7 +70,7 @@ var HWDL = function(mem) {
           ctx.putImageData(obj1Data, obj0.width, 0, obj0.width + obj1.width, obj1.height);
           
           ctx.drawImage(obj0, 0, 0);
-          ctx.drawImage(obj1, obj0.width, 0);*/
+          ctx.drawImage(obj1, obj0.width, 0);
           
         }
         
@@ -96,14 +96,17 @@ var HWDL = function(mem) {
     
   };
   
-};
+};*/
 
 var mem = "";
-var hdwl = new HDWL(mem);
-
+//var hdwl = new HDWL(mem);
+var c = document.getElementById("mainCanvas");
+var cx = c.getContext("2d");
 var img = document.createElement("img");
+img.onload = function() {
+  cx.drawImage(img, 0, 0);
+}
 img.src = "img0.png";
-document.getElementById("mainCanvas").getContext("2d").drawImage(img, 0, 0);
 
 /*var update = setInterval(function() {
   
